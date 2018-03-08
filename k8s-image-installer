@@ -21,4 +21,4 @@ for image in ${images[@]}; do
 	docker rmi $DOCKERHUB_NAMESPACE/$image
 done
 
-echo "images install finished."
+echo "\n\nCongratulations! All images needed have been installed."
