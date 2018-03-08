@@ -3,22 +3,24 @@
 DOCKERHUB_NAMESPACE=chenqinghe
 
 images=(
-	etcd-amd64:3.0.17
-	k8s-dns-dnsmasq-nanny-amd64:1.14.4
-	k8s-dns-kube-dns-amd64:1.14.4	
-	k8s-dns-sidecar-amd64:1.14.4	
-	kube-apiserver-amd64:v1.7.11
-	kube-controller-manager-amd64:v1.7.11
-	kube-proxy-amd64:v1.7.11
-	kube-scheduler-amd64:v1.7.11
+	etcd-amd64:3.1.10
+	k8s-dns-dnsmasq-nanny-amd64:1.14.7
+	k8s-dns-kube-dns-amd64:1.14.7	
+	k8s-dns-sidecar-amd64:1.14.7	
+	kube-apiserver-amd64:v1.9.3
+	kube-controller-manager-amd64:v1.9.3
+	kube-proxy-amd64:v1.9.3
+	kube-scheduler-amd64:v1.9.3
 	pause-amd64:3.0	
 )
 
 
 for image in ${images[@]}; do
 	docker pull $DOCKERHUB_NAMESPACE/$image 
-	docker tag $DOCKERHUB_NAMESPACE/$image k8s.gcr.io/google_containers/$image
+	docker tag $DOCKERHUB_NAMESPACE/$image k8s.gcr.io/$image
 	docker rmi $DOCKERHUB_NAMESPACE/$image
 done
 
-echo "\n\nCongratulations! All images needed have been installed."
+echo ""
+echo ""
+echo "Congratulations! All images needed have been installed."
